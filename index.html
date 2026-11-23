@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b0b0c">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-192.png">
+<title>He Got Faded — Programări</title>
+<style>
+:root{--bg:#0b0b0c;--panel:#151517;--panel2:#1d1d20;--line:#303034;--muted:#a5a5aa;--text:#f4f4f1;--gold:#c7a56a;--gold2:#e0c28b;--red:#d97979;--green:#87b99a}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -20%,#29231a 0%,#0b0b0c 50%);color:var(--text);font:15px/1.5 Inter,system-ui,-apple-system,Segoe UI,sans-serif;min-height:100vh}
+button,input,select{font:inherit}button{cursor:pointer}.wrap{max-width:1080px;margin:auto;padding:24px 18px 60px}.top{display:flex;justify-content:space-between;align-items:center;gap:14px;border-bottom:1px solid var(--line);padding-bottom:18px}.brand{letter-spacing:.22em;font-size:13px;font-weight:800}.brand span{color:var(--gold)}.sub{font-size:10px;color:var(--muted);letter-spacing:.28em;margin-top:3px}.nav{display:flex;gap:8px}.btn{border:1px solid var(--line);background:#1b1b1e;color:var(--text);border-radius:10px;padding:10px 14px}.btn:hover{border-color:var(--gold)}.btn.primary{background:var(--gold);border-color:var(--gold);color:#17130d;font-weight:800}.btn.small{padding:7px 10px;font-size:13px}.hero{text-align:center;padding:46px 10px 28px}.eyebrow{color:var(--gold2);font-size:11px;letter-spacing:.3em;text-transform:uppercase}.hero h1{font-family:Georgia,serif;font-size:clamp(34px,7vw,62px);font-weight:400;letter-spacing:.04em;margin:10px 0}.hero p{color:var(--muted);max-width:520px;margin:0 auto}.rule{width:54px;height:1px;background:var(--gold);margin:22px auto}.layout{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}.card{background:linear-gradient(145deg,#19191b,#111113);border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:0 14px 45px #0005}.card h2{font:400 23px Georgia,serif;margin:0 0 5px}.muted{color:var(--muted)}.tiny{font-size:12px}.sectionhead{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:16px}.week{display:grid;grid-template-columns:repeat(7,1fr);gap:7px}.day{border:1px solid var(--line);border-radius:11px;background:#111113;color:var(--text);padding:10px 3px;text-align:center;min-width:0}.day b{display:block;font-size:17px}.day span{font-size:10px;color:var(--muted);text-transform:uppercase}.day.active{border-color:var(--gold);background:#2a241a}.day:disabled{opacity:.3;cursor:not-allowed}.slots{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}.slot{border:1px solid var(--line);background:#111113;color:var(--text);border-radius:9px;padding:10px 4px}.slot.selected{background:var(--gold);color:#17130d;border-color:var(--gold);font-weight:800}.slot:disabled{opacity:.25;cursor:not-allowed;text-decoration:line-through}.field{display:grid;gap:6px;margin:13px 0}.field label{font-size:12px;color:var(--muted)}.field input,.field select{width:100%;padding:12px;border-radius:9px;border:1px solid var(--line);background:#101012;color:var(--text);outline:none}.field input:focus,.field select:focus{border-color:var(--gold)}.choice{display:grid;grid-template-columns:1fr 1fr;gap:8px}.choice button{border:1px solid var(--line);border-radius:10px;padding:12px;background:#101012;color:var(--text)}.choice button.active{border-color:var(--gold);background:#292319;color:var(--gold2)}.summary{border-top:1px solid var(--line);margin-top:18px;padding-top:15px}.notice{border:1px solid #655333;background:#211d15;color:#d9c59e;border-radius:10px;padding:11px;font-size:12px;margin-top:12px}.success{border-color:#365b43;background:#142219;color:#b4d9bf}.hidden{display:none!important}.admin-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.list{display:grid;gap:8px}.booking{border:1px solid var(--line);background:#101012;border-radius:10px;padding:12px;display:flex;justify-content:space-between;gap:10px;align-items:center}.booking strong{display:block}.tag{font-size:10px;color:var(--gold2);letter-spacing:.08em}.empty{text-align:center;color:var(--muted);padding:22px;border:1px dashed var(--line);border-radius:10px}.footer{text-align:center;color:#777;font-size:11px;margin-top:30px;letter-spacing:.08em}
+@media(max-width:760px){.layout,.admin-grid{grid-template-columns:1fr}.hero{padding-top:32px}.card{padding:16px}.week{gap:4px}.day{padding:8px 1px}.day span{font-size:9px}.slots{grid-template-columns:repeat(3,1fr)}.top{align-items:flex-start}.nav{flex-wrap:wrap;justify-content:flex-end}.btn{padding:8px 10px;font-size:13px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <div><div class="brand">HE GOT <span>FADED</span></div><div class="sub">BARBER APPOINTMENTS</div></div>
+  <div class="nav"><button class="btn small" id="publicTab">Programări</button><button class="btn small" id="adminTab">Administrare</button></div>
+</header>
+<section id="publicView">
+  <div class="hero"><div class="eyebrow">Grooming • Precision • Style</div><h1>Book your next cut.</h1><p>Alege ziua și ora potrivită. Programarea este rezervată automat după completarea formularului.</p><div class="rule"></div></div>
+  <div class="layout">
+    <section class="card">
+      <div class="sectionhead"><div><h2>Alege o zi</h2><div class="muted tiny" id="weekLabel"></div></div><div><button class="btn small" id="prevWeek">‹</button> <button class="btn small" id="nextWeek">›</button></div></div>
+      <div class="week" id="days"></div>
+      <div class="summary"><div class="sectionhead"><div><h2>Ore disponibile</h2><div class="muted tiny" id="selectedDateLabel"></div></div></div><div class="slots" id="slots"></div></div>
+    </section>
+    <section class="card">
+      <h2>Detalii programare</h2><p class="muted tiny">Completează datele pentru a-ți rezerva intervalul.</p>
+      <div class="field"><label for="clientName">Nume</label><input id="clientName" maxlength="60" placeholder="Numele tău"></div>
+      <div class="field"><label for="clientPhone">Telefon</label><input id="clientPhone" type="tel" maxlength="25" placeholder="07xx xxx xxx"></div>
+      <div class="field"><label>Unde dorești să aibă loc tunsoarea?</label><div class="choice"><button type="button" data-place="La frizer" class="active">La frizer</button><button type="button" data-place="Deplasare">Deplasare</button></div></div>
+      <div class="field hidden" id="areaField"><label for="area">Zona/localitatea (nu introduce adresa exactă aici)</label><input id="area" maxlength="80" placeholder="Ex. Suceava, Burdujeni"></div>
+      <div class="field"><label for="service">Serviciu</label><select id="service"><option>Tuns</option><option>Tuns + aranjat barbă</option><option>Aranjat / styling</option></select></div>
+      <div class="notice">Nu afișa public adresa locuinței. Dacă este nevoie de deplasare, detaliile exacte se stabilesc separat, în privat.</div>
+      <div class="summary"><div class="muted tiny" id="summaryText">Alege mai întâi o zi și o oră.</div><button class="btn primary" style="width:100%;margin-top:12px" id="bookBtn">Rezervă programarea</button><div id="feedback" class="notice hidden"></div></div>
+    </section>
+  </div>
+</section>
+<section id="adminView" class="hidden">
+  <div class="hero"><div class="eyebrow">Private workspace</div><h1>Agenda ta.</h1><p>Configurează disponibilitatea și urmărește rezervările.</p><div class="rule"></div></div>
+  <div id="loginCard" class="card" style="max-width:420px;margin:auto"><h2>Acces administrare</h2><p class="muted tiny">Setează un PIN local pentru această versiune de test.</p><div class="field"><label>PIN</label><input id="pinInput" type="password" inputmode="numeric" placeholder="PIN (inițial: 1234)"></div><button class="btn primary" id="loginBtn">Intră în agendă</button><div class="muted tiny" style="margin-top:10px">Schimbă PIN-ul înainte de publicare. Protecția din această versiune este doar locală.</div></div>
+  <div id="adminPanel" class="hidden">
+    <div class="admin-grid">
+      <div class="card"><h2>Program săptămânal</h2><p class="muted tiny">Bifează zilele lucrătoare și intervalul orar. Sloturile sunt generate din 30 în 30 de minute.</p><div id="scheduleEditor"></div><div class="field"><label>Durata unei programări</label><select id="duration"><option value="30">30 minute</option><option value="45">45 minute</option><option value="60" selected>60 minute</option><option value="90">90 minute</option></select></div><button class="btn primary" id="saveSchedule">Salvează disponibilitatea</button><div id="scheduleFeedback" class="notice hidden"></div></div>
+      <div class="card"><h2>Rezervări</h2><p class="muted tiny">Programările salvate pe acest dispozitiv.</p><div class="list" id="bookingList"></div></div>
+    </div>
+  </div>
+</section>
+<div class="footer">HE GOT FADED • APPOINTMENTS</div>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+const key='studio_barber_agenda_v2';
+const oldKey='studio_barber_agenda_v1';
+const defaultState={pin:'1234',duration:60,schedule:[{on:true,start:'15:00',end:'18:00'},{on:true,start:'15:00',end:'18:00'},{on:true,start:'15:00',end:'18:00'},{on:true,start:'15:00',end:'18:00'},{on:true,start:'15:00',end:'18:00'},{on:false,start:'10:00',end:'14:00'},{on:false,start:'10:00',end:'14:00'}],bookings:[]};
+let state;try{state=JSON.parse(localStorage.getItem(key))||null;if(!state){const old=JSON.parse(localStorage.getItem(oldKey)||'null');state=old?{...structuredClone(defaultState),bookings:old.bookings||[]}:structuredClone(defaultState);localStorage.setItem(key,JSON.stringify(state));}}catch(e){state=structuredClone(defaultState)}
+const save=()=>localStorage.setItem(key,JSON.stringify(state));
+const names=['Lun','Mar','Mie','Joi','Vin','Sâm','Dum'];
+const pad=n=>String(n).padStart(2,'0');
+const dateKey=d=>`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+const parseDate=s=>new Date(s+'T12:00:00');
+let weekStart=new Date();weekStart.setHours(12,0,0,0);weekStart.setDate(weekStart.getDate()-((weekStart.getDay()+6)%7));
+let selectedDate=null,selectedTime=null,place='La frizer',adminUnlocked=false;
+function weekDates(){return Array.from({length:7},(_,i)=>{let d=new Date(weekStart);d.setDate(d.getDate()+i);return d})}
+function fmt(d){return d.toLocaleDateString('ro-RO',{day:'numeric',month:'long'})}
+function showTab(tab){$('publicView').classList.toggle('hidden',tab!=='public');$('adminView').classList.toggle('hidden',tab!=='admin');$('publicTab').classList.toggle('primary',tab==='public');$('adminTab').classList.toggle('primary',tab==='admin');if(tab==='public')renderCalendar();else renderAdmin()}
+$('publicTab').onclick=()=>showTab('public');$('adminTab').onclick=()=>showTab('admin');
+$('prevWeek').onclick=()=>{weekStart.setDate(weekStart.getDate()-7);renderCalendar()};
+$('nextWeek').onclick=()=>{weekStart.setDate(weekStart.getDate()+7);renderCalendar()};
+function renderCalendar(){
+ const ds=weekDates();$('weekLabel').textContent=fmt(ds[0])+' — '+fmt(ds[6]);
+ $('days').innerHTML='';ds.forEach((d,i)=>{let b=document.createElement('button');b.className='day'+(selectedDate===dateKey(d)?' active':'');b.innerHTML=`<span>${names[i]}</span><b>${d.getDate()}</b>`;b.disabled=d<new Date(new Date().setHours(0,0,0,0));b.onclick=()=>{selectedDate=dateKey(d);selectedTime=null;renderCalendar()};$('days').append(b)});
+ $('selectedDateLabel').textContent=selectedDate?fmt(parseDate(selectedDate)):'Selectează o zi';
+ $('slots').innerHTML='';
+ if(!selectedDate){$('slots').innerHTML='<div class="empty" style="grid-column:1/-1">Alege o zi pentru a vedea orele.</div>';updateSummary();return}
+ const day=parseDate(selectedDate),idx=(day.getDay()+6)%7,conf=state.schedule[idx];
+ if(!conf.on){$('slots').innerHTML='<div class="empty" style="grid-column:1/-1">Nu sunt programări disponibile în această zi.</div>';updateSummary();return}
+ let start=toMin(conf.start),end=toMin(conf.end),duration=Number(state.duration),found=0;
+ for(let t=start;t+duration<=end;t+=30){let time=fromMin(t),busy=state.bookings.some(b=>b.date===selectedDate&&toMin(b.time)<t+duration&&toMin(b.time)+Number(state.duration)>t);let past=selectedDate===dateKey(new Date())&&t<=new Date().getHours()*60+new Date().getMinutes();let b=document.createElement('button');b.className='slot'+(selectedTime===time?' selected':'');b.textContent=time;b.disabled=busy||past;b.title=busy?'Deja rezervat':'';b.onclick=()=>{selectedTime=time;renderCalendar()};$('slots').append(b);if(!busy&&!past)found++}
+ if(!found)$('slots').innerHTML='<div class="empty" style="grid-column:1/-1">Nu mai sunt intervale libere. Alege altă zi.</div>';
+ updateSummary();
+}
+function toMin(s){let [h,m]=s.split(':').map(Number);return h*60+m}
+function fromMin(n){return pad(Math.floor(n/60))+':'+pad(n%60)}
+function updateSummary(){$('summaryText').textContent=selectedDate&&selectedTime?`${fmt(parseDate(selectedDate))} • ${selectedTime} • ${place}`:'Alege mai întâi o zi și o oră.'}
+document.querySelectorAll('[data-place]').forEach(b=>b.onclick=()=>{place=b.dataset.place;document.querySelectorAll('[data-place]').forEach(x=>x.classList.toggle('active',x===b));$('areaField').classList.toggle('hidden',place!=='Deplasare');updateSummary()});
+$('bookBtn').onclick=()=>{
+ const name=$('clientName').value.trim(),phone=$('clientPhone').value.trim(),area=$('area').value.trim();
+ if(!selectedDate||!selectedTime)return feedback('feedback','Alege o zi și o oră.');if(name.length<2||phone.length<6)return feedback('feedback','Completează numele și un număr de telefon valid.');if(place==='Deplasare'&&!area)return feedback('feedback','Completează zona/localitatea pentru deplasare.');
+ if(state.bookings.some(b=>b.date===selectedDate&&toMin(b.time)<toMin(selectedTime)+Number(state.duration)&&toMin(b.time)+Number(state.duration)>toMin(selectedTime)))return feedback('feedback','Intervalul se suprapune cu o altă rezervare. Alege altul.');
+ state.bookings.push({id:Date.now(),date:selectedDate,time:selectedTime,name,phone,place,area,service:$('service').value});save();selectedTime=null;renderCalendar();feedback('feedback','Programare rezervată! Această confirmare este salvată în agenda acestui dispozitiv.','success');
+};
+function feedback(id,msg,cls=''){let el=$(id);el.textContent=msg;el.classList.remove('hidden','success');if(cls)el.classList.add(cls)}
+$('loginBtn').onclick=()=>{if($('pinInput').value===state.pin){adminUnlocked=true;$('loginCard').classList.add('hidden');$('adminPanel').classList.remove('hidden');renderAdmin()}else feedback('loginCard','PIN incorect.')};
+function renderAdmin(){
+ if(!adminUnlocked)return;
+ $('scheduleEditor').innerHTML='';
+ state.schedule.forEach((s,i)=>{let row=document.createElement('div');row.style.cssText='display:grid;grid-template-columns:60px 22px 1fr 1fr;gap:8px;align-items:center;margin:9px 0';row.innerHTML=`<strong>${names[i]}</strong><input type="checkbox" ${s.on?'checked':''} aria-label="Activ"> <input type="time" value="${s.start}" aria-label="Început"> <input type="time" value="${s.end}" aria-label="Sfârșit">`;let inputs=row.querySelectorAll('input');inputs[0].onchange=()=>s.on=inputs[0].checked;inputs[1].onchange=()=>s.start=inputs[1].value;inputs[2].onchange=()=>s.end=inputs[2].value;$('scheduleEditor').append(row)});
+ $('duration').value=state.duration;$('bookingList').innerHTML='';
+ let sorted=[...state.bookings].sort((a,b)=>(a.date+a.time).localeCompare(b.date+b.time));
+ if(!sorted.length)$('bookingList').innerHTML='<div class="empty">Nu există încă rezervări.</div>';
+ sorted.forEach(b=>{let el=document.createElement('div');el.className='booking';let left=document.createElement('div');left.innerHTML=`<span class="tag">${b.date} • ${b.time}</span><strong></strong><div class="muted tiny"></div><div class="muted tiny"></div>`;left.querySelector('strong').textContent=b.name;left.children[2].textContent=b.service+' · '+b.phone;left.children[3].textContent=b.place+(b.area?' · '+b.area:'');let del=document.createElement('button');del.className='btn small';del.textContent='Anulează';del.onclick=()=>{if(confirm('Anulezi această programare?')){state.bookings=state.bookings.filter(x=>x.id!==b.id);save();renderAdmin();renderCalendar()}};el.append(left,del);$('bookingList').append(el)});
+}
+$('saveSchedule').onclick=()=>{state.duration=Number($('duration').value);state.schedule.forEach(s=>{if(toMin(s.end)<=toMin(s.start))s.on=false});save();feedback('scheduleFeedback','Disponibilitatea a fost salvată.','success');renderCalendar()};
+renderCalendar();showTab('public');
+</script>
+<script>
+if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(console.error));
+}
+</script>
+</body></html>
